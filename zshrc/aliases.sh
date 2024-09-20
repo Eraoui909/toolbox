@@ -1,0 +1,1 @@
+alias conn=/Users/heraoui/Workspace/toolbox/sqlcl/conn.sh

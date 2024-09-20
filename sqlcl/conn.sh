@@ -6,7 +6,7 @@
 
 declare SQLCL_VERSIONS=(
     "latest|/Users/heraoui/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql"
-    "_23.3|$HOME/Workspace/repo/sqlcl_23.4/bin/sql"
+    "23.3|$HOME/Workspace/repo/sqlcl_23.4/bin/sql"
 )
 
 # Array to hold database names and their corresponding links
@@ -25,39 +25,72 @@ DATABASES=(
     "DB11.2-EE |system/oracle@dbtools-dev.oraclecorp.com:2112/orcl"
 )
 
-# Function to display the menu
-display_menu() {
-
-
+choose_database() {
     echo "Available Databases:"
     echo "--------------------"
     for i in "${!DATABASES[@]}"; do
         IFS='|' read -r name link <<< "${DATABASES[$i]}"
-        echo "$((i+1)). $name"
+        echo "$((i+1)) - $name"
     done
     echo "--------------------"
+
+    # Prompt user for selection and validate input in a loop
+    while true; do
+        read -p "Choose a database (default is NOLOG): " selection
+
+        if [[ -z "$selection" ]]; then
+            selection=1
+            break
+        fi
+        
+        # Validate input
+        if [[ ! "$selection" =~ ^[0-9]+$ ]]; then
+            echo "Invalid selection. Please enter a number."
+            continue
+        fi
+
+        if [[ "$selection" -lt 1 || "$selection" -gt "${#DATABASES[@]}" ]]; then
+            echo "Database number out of range."
+            continue
+        fi
+
+        # Valid selection, break the loop
+        break
+    done
+
+    # Return chosen database
+    IFS='|' read -r name link <<< "${DATABASES[$((selection-1))]}"
+    echo "Connecting to $name"
+    # ... (code to connect to the database)
 }
 
 choose_sqlcl_versions() {
+    local valid_choices
 
     echo "SQLcl Version:"
-
-    # for version in "${!SQLCL_VERSIONS[@]}"; do
-    #     SQLCL_VERSION="${SQLCL_VERSIONS[$version]}"
-    #     echo "===> $version: $SQLCL_VERSION"
-    # done
-
     echo "--------------------"
     for i in "${!SQLCL_VERSIONS[@]}"; do
         IFS='|' read -r sqlcl_name sqlcl_version <<< "${SQLCL_VERSIONS[$i]}"
-        echo "$i => $sqlcl_name"
+        echo "$i - $sqlcl_name"
+        valid_choices="$valid_choices $i"
     done
     echo "--------------------"
 
-    read -p "Which version : " version
-    ## add user entry check
+    while true; do
+        read -p "Enter the number of your choice (default is latest): " version
+        if [[ -z "$version" ]]; then
+            version=0
+            break
+        elif [[ "$valid_choices" =~ "$version" ]]; then
+            break
+        else
+            echo "Invalid choice. Please enter a valid number."
+        fi
+    done
 
+    # ... (rest of your code using the chosen version)
 }
+
 
 # Function to connect to the selected database
 connect_db() {
@@ -83,10 +116,7 @@ connect_db() {
 
 # Main script execution
 choose_sqlcl_versions
-display_menu
-
-# Prompt user for selection
-read -p "connect to : " selection
+choose_database
 
 # Connect to the selected database
 connect_db "$version" "$selection"
