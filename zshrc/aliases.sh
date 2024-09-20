@@ -1,13 +1,21 @@
 # Alias for connect to SQLcl with different options
 alias conn=$HOME/Workspace/toolbox/sqlcl/conn.sh
 
-# Aliases for SQLcl development
+# Workspace File Structure Structure
 alias trash="cd $HOME/Workspace/trash"
 alias repo="cd $HOME/Workspace/repo"
-alias common="cd $HOME/Workspace/development/dbtools-commons/"
-alias project="cd $HOME/Workspace/development/dbtools-commons/dbtools-extensions/dbtools-cicd-project-extension"
-alias dist="cd $HOME/Workspace/development/dbtools-commons/sqlcl-distribution"
-alias sqlcl="cd $HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin"
+alias resources="cd $HOME/Workspace/resources"
+alias opensource="cd $HOME/Workspace/opensource"
+alias external="cd $HOME/Workspace/external"
+alias development="cd $HOME/Workspace/development"
+
+
+
+# Aliases for SQLcl development
+alias common="development && cd dbtools-commons/"
+alias project="development && cd dbtools-commons/dbtools-extensions/dbtools-cicd-project-extension"
+alias dist="development && cd dbtools-commons/sqlcl-distribution"
+alias sqlcl="development && cd dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin"
 alias conn_o="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql /nolog"
 alias conn_debug="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql /nolog -debug"
 alias conn_hr="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql hr/oracle@dbtools-dev.oraclecorp.com:2323/DB23P"
@@ -81,12 +89,12 @@ function repeat() {
 # Function to run upon exit of shell.
 function _exit() {
     echo -e "HAHAHA safe!, Bye Bye :)"
-    echo -e "\e[1;5;32m                                            ____             \e[0m"
-    echo -e "\e[1;5;32m                                           | __ ) _   _  ___ \e[0m"
-    echo -e "\e[1;5;32m                                           |  _ \| | | |/ _ \\e[0m"
-    echo -e "\e[1;5;32m                                           | |_) | |_| |  __/\e[0m"
-    echo -e "\e[1;5;32m                                           |____/ \__, |\___|\e[0m"
-    echo -e "\e[1;5;32m                                                  |___/      \e[0m"
+    echo -e "\e[1;5;32m                            ____             \e[0m"
+    echo -e "\e[1;5;32m                           | __ ) _   _  ___ \e[0m"
+    echo -e "\e[1;5;32m                           |  _ \| | | |/ _ \\e[0m"
+    echo -e "\e[1;5;32m                           | |_) | |_| |  __/\e[0m"
+    echo -e "\e[1;5;32m                           |____/ \__, |\___|\e[0m"
+    echo -e "\e[1;5;32m                                  |___/      \e[0m"
     sleep 0.75
 }
 trap _exit EXIT
