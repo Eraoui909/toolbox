@@ -1,6 +1,9 @@
 # Alias for connect to SQLcl with different options
 alias conn=$HOME/Workspace/toolbox/sqlcl/conn.sh
 
+# Alias to run an APEX/Oracle Db container
+alias docker_run=$HOME/Workspace/toolbox/docker/run_apex.sh
+
 # Workspace File Structure Structure
 alias trash="cd $HOME/Workspace/trash"
 alias repo="cd $HOME/Workspace/repo"
