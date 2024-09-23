@@ -11,8 +11,10 @@ alias resources="cd $HOME/Workspace/resources"
 alias opensource="cd $HOME/Workspace/opensource"
 alias external="cd $HOME/Workspace/external"
 alias development="cd $HOME/Workspace/development"
+alias toolbox="cd $HOME/Workspace/toolbox"
 
-
+# Database statistics
+alias db_stats=$HOME/Workspace/toolbox/database/db_statistics.sql
 
 # Aliases for SQLcl development
 alias common="development && cd dbtools-commons/"
