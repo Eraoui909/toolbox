@@ -35,6 +35,8 @@ alias noproxy='unset no_proxy &&  unset http_proxy &&  unset https_proxy &&  uns
 alias format="mvn spotless:apply"
 alias format_check="mvn spotless:check"
 
+
+
 # some more ls aliases
 alias diskspace='du -S | sort -n -r | more'
 alias folders='find . -maxdepth 1 -type d -print | xargs du -sk | sort -rn'
@@ -44,7 +46,16 @@ alias copy='cp'
 alias rename='mv'
 alias del='rm'
 alias install='apt-get install'
-alias fuck='echo -e "Chill out man, nothing is worth being upset\n\nHere is a quote, read it:\n`fortune`"'
+alias fuck='
+echo -e "Chill out man, nothing is worth being upset\n\nHere is a quote, read it:\n`fortune`" 
+echo -e "\e[1;33m"
+echo -e "     _____"
+echo -e "    /     \\"
+echo -e " («|  O O  |»)"
+echo -e "   |   ^   |"
+echo -e "   |  \_/  |"
+echo -e "    \\_____/\e[0m"
+'
 
 # Creates an archive (*.tar.gz) from given directory.
 function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
@@ -103,3 +114,5 @@ function _exit() {
     sleep 0.75
 }
 trap _exit EXIT
+
+
