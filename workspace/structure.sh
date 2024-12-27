@@ -1,8 +1,6 @@
 #!/bin/bash
 
 ## =============================================================================
-##
-##
 ## NAME
 ##   workspace/structure.sh
 ##
@@ -16,14 +14,18 @@
 ##                    ├── opensource   // Dedicated to store opensource-related repositories
 ##                    ├── repo         // Dedicated to store all the third-party tools, libs...
 ##                    ├── resources    // Dedicated to store all resources (Courses, PDFs, Books...)
-##                    ├── toolbox      // Dedicated to my too repository
+##                    ├── toolbox      // Dedicated to the toolbox repository
 ##                    └── trash        // Dedicated to store tempoprary work that could be deleted anytime
+##
+## MODIFIED   (MM/DD/YYYY)
+##   Hamza Eraoui  09/14/2024 created
+##   Hamza Eraoui  12/27/2024 modified
 ##
 ## =============================================================================
 
 source $HOME/Workspace/toolbox/utils/colors.sh
 
-workspace_dir="$HOME/Workspace_test"
+workspace_dir="$HOME/Workspace"
 
 function create_workspace_structure() {
 

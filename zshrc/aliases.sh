@@ -1,3 +1,19 @@
+## =============================================================================
+## NAME
+##   zshrc/aliases.sh
+##
+## DESCRIPTION
+##   This script used create all the needed aliases
+##   This script is the entry point to all the scripts in this repo, 
+##   it should be added to the .zshrc file (for MAC users)
+##
+##
+## MODIFIED   (MM/DD/YYYY)
+##   Hamza Eraoui  09/14/2024 created
+##
+## =============================================================================
+
+
 # Alias for connect to SQLcl with different options
 alias conn=$HOME/Workspace/toolbox/sqlcl/conn.sh
 
@@ -15,26 +31,6 @@ alias toolbox="cd $HOME/Workspace/toolbox"
 
 # Database statistics
 alias db_stats=$HOME/Workspace/toolbox/database/db_statistics.sql
-
-# Aliases for SQLcl development
-alias common="development && cd dbtools-commons/"
-alias project="development && cd dbtools-commons/dbtools-extensions/dbtools-cicd-project-extension"
-alias dist="development && cd dbtools-commons/sqlcl-distribution"
-alias sqlcl="development && cd dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin"
-alias conn_o="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql /nolog"
-alias conn_debug="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql /nolog -debug"
-alias conn_hr="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql hr/oracle@dbtools-dev.oraclecorp.com:2323/DB23P"
-alias conn_app="$HOME/Workspace/development/dbtools-commons/sqlcl-distribution/target/sqlcl-*/sqlcl/bin/sql sampleapp_ws/oracle@dbtools-dev.oraclecorp.com:2323/DB23P"
-alias b1="project && mvn clean install -o -DskipTests -Dmaven.javadoc.skip=true && dist && mvn clean install -o -DskipTests -Dmaven.javadoc.skip=true && trash"
-alias b2="common && mvn clean install -U -DskipTests -Dmaven.javadoc.skip=true -Dmaven.source.skip=true && trash"
-alias b0="common && mvn clean install -o -DskipTests -Dmaven.javadoc.skip=true -Dmaven.source.skip=true && trash"
-alias b3="project && mvn clean install -U -DskipTests -Dmaven.javadoc.skip=true -Dmaven.source.skip=true && trash"
-alias btest="project && mvn clean install test -Dmaven.javadoc.skip=true -Dmaven.source.skip=true && trash"
-alias setproxy="source $HOME/Workspace/repo/export_proxy &&  cp $HOME/Workspace/repo/mvn-settings/settings.xml $HOME/.m2/ &&  git config --global http.proxy http://www-proxy-ash7.us.oracle.com:80"
-alias noproxy='unset no_proxy &&  unset http_proxy &&  unset https_proxy &&  unset HTTP_PROXY &&  unset HTTPS_PROXY &&  unset ALL_PROXY &&  rm $HOME/.m2/settings.xml &&  cp $HOME/Workspace/repo/mvn-settings/settings-no.xml $HOME/.m2/settings.xml &&  git config --global --unset http.proxy'
-alias format="mvn spotless:apply"
-alias format_check="mvn spotless:check"
-
 
 
 # some more ls aliases

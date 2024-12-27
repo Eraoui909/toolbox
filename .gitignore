@@ -1,1 +1,3 @@
 sqlcl/secrets.sh
+00_start_apex_ords_installer.sh
+unattended_apex_install_23c.sh
