@@ -1,4 +1,9 @@
+# Installation
 
+Once you've cloned the repo to your local machine, make sure that `zshrc/aliases.sh` is sourced in your default startup file (`.zshrc` for Mac users).
+
+example:
+> source $HOME/Workspace/toolbox/zshrc/aliases.sh
 
 # SQLcl
 
